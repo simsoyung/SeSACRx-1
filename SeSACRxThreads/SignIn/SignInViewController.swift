@@ -66,6 +66,7 @@ class SignInViewController: UIViewController {
             .bind(with: self) { owner, _ in
                 owner.navigationController?.pushViewController(SignUpViewController(), animated: true)
             }
+            .disposed(by: disposeBag)
         
         
     }

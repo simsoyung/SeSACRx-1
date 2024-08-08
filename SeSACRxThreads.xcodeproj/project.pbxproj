@@ -32,6 +32,8 @@
 		04F6DC002C5B0C2200667F4D /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DBFF2C5B0C2200667F4D /* SearchTableViewCell.swift */; };
 		04F6DC022C5B0D8200667F4D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DC012C5B0D8200667F4D /* DetailViewController.swift */; };
 		46AA5EBB2C64BC5E00343AF0 /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AA5EBA2C64BC5E00343AF0 /* BirthdayViewModel.swift */; };
+		46AA5EBD2C65030400343AF0 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AA5EBC2C65030400343AF0 /* SignUpViewModel.swift */; };
+		46AA5EBF2C65031700343AF0 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AA5EBE2C65031700343AF0 /* PasswordViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		04F6DBFF2C5B0C2200667F4D /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		04F6DC012C5B0D8200667F4D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		46AA5EBA2C64BC5E00343AF0 /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
+		46AA5EBC2C65030400343AF0 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		46AA5EBE2C65031700343AF0 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,8 @@
 			children = (
 				041280692AEFA91E00972552 /* SignUpViewController.swift */,
 				0412806B2AEFABFE00972552 /* PasswordViewController.swift */,
+				46AA5EBE2C65031700343AF0 /* PasswordViewModel.swift */,
+				46AA5EBC2C65030400343AF0 /* SignUpViewModel.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -365,6 +371,8 @@
 				04F6DC002C5B0C2200667F4D /* SearchTableViewCell.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,
 				0412806A2AEFA91E00972552 /* SignUpViewController.swift in Sources */,
+				46AA5EBF2C65031700343AF0 /* PasswordViewModel.swift in Sources */,
+				46AA5EBD2C65030400343AF0 /* SignUpViewModel.swift in Sources */,
 				041280712AEFAD3D00972552 /* PhoneViewController.swift in Sources */,
 				041280262AEF9BAB00972552 /* SceneDelegate.swift in Sources */,
 				041280582AEFA05300972552 /* SignInViewModel.swift in Sources */,
