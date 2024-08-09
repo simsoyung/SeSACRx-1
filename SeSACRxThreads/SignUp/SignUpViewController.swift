@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController {
     let validationButton = UIButton()
     let nextButton = PointButton(title: "다음")
     let viewModel = SignUpViewModel()
+    let emailTextLabel = UILabel()
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -25,13 +26,33 @@ class SignUpViewController: UIViewController {
         
         configureLayout()
         configure()
-        
-        nextButton.addTarget(self, action: #selector(nextButtonClicked), for: .touchUpInside)
-
+        bind()
     }
     
-    @objc func nextButtonClicked() {
-        navigationController?.pushViewController(PasswordViewController(), animated: true)
+    func bind(){
+        let input = SignUpViewModel.Input(email: emailTextField.rx.text, nextTap: nextButton.rx.tap)
+        let output = viewModel.transform(input: input)
+        
+        output.emailLabel
+            .bind(to: emailTextLabel.rx.text)
+            .disposed(by: disposeBag)
+        output.emailCheck
+            .bind(to: validationButton.rx.isEnabled,
+                  nextButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        output.emailCheck
+            .bind(with: self) { owner, value in
+                let color: UIColor = value ? .black : .lightGray
+                owner.nextButton.backgroundColor = color
+            }
+            .disposed(by: disposeBag)
+        output.nextTap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(PasswordViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        
     }
 
     func configure() {
@@ -46,7 +67,7 @@ class SignUpViewController: UIViewController {
         view.addSubview(emailTextField)
         view.addSubview(validationButton)
         view.addSubview(nextButton)
-        
+        view.addSubview(emailTextLabel)
         validationButton.snp.makeConstraints { make in
             make.height.equalTo(50)
             make.top.equalTo(view.safeAreaLayoutGuide).offset(200)
@@ -60,10 +81,15 @@ class SignUpViewController: UIViewController {
             make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.trailing.equalTo(validationButton.snp.leading).offset(-8)
         }
+        emailTextLabel.snp.makeConstraints { make in
+            make.top.equalTo(emailTextField.snp.bottom).offset(5)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.height.equalTo(20)
+        }
         
         nextButton.snp.makeConstraints { make in
             make.height.equalTo(50)
-            make.top.equalTo(emailTextField.snp.bottom).offset(30)
+            make.top.equalTo(emailTextLabel.snp.bottom).offset(20)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
     }
